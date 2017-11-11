@@ -28,21 +28,21 @@ public class Net extends Player {
     @Override
     public void Draw(GL gl, GLUT glut, int glRotated) {
         gl.glPushMatrix();
-        gl.glPushMatrix();        
-        gl.glColor3f(0, 0, 1);
+        gl.glPushMatrix();
+        gl.glColor3f(1, 1, 1);
         gl.glRotated(90, 1, 0, 0);
         gl.glTranslated(this.getX(), this.getY() + 2, -1.7f);
         glut.glutSolidCylinder(0.2f, 4, 16, 16);
         gl.glPopMatrix();
-        gl.glPushMatrix();        
-        gl.glColor3f(0, 0, 1);
+        gl.glPushMatrix();
+        gl.glColor3f(1, 1, 1);
         gl.glRotated(90, 1, 0, 0);
         gl.glTranslated(this.getX(), this.getY() - 2, -2);
         glut.glutSolidCylinder(0.2f, 4, 16, 16);
-        gl.glPopMatrix();        
-        gl.glColor3f(0.5f, 0.5f, 0);
-        gl.glTranslated(this.getX(), this.getY()+0.5f, 0);
-        gl.glScaled(0.5f, 1.8f, 4);
+        gl.glPopMatrix();
+        gl.glColor3f(0.9f, 0.9f, 0.98f);
+        gl.glTranslated(this.getX(), this.getY() + 0.5f, 0);
+        gl.glScaled(0.4f, 1.8f, 4);
         gl.glRotated(glRotated, 0, 1, 0);
         glut.glutSolidCube(1);
 

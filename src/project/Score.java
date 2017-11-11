@@ -30,13 +30,13 @@ public class Score implements _Object3D {
         String textPlayer2 = "Player 2: " + Integer.toString(scorePlayer2);
 
         TextRenderer textr = new TextRenderer(new Font("SansSerif", Font.PLAIN, 18));
-        textr.setColor(Color.GREEN);
+        textr.setColor(Color.black);
         textr.begin3DRendering();
         textr.draw3D(textPlayer1, getX(), getY(), 0.0f, 0.01f);
         textr.end3DRendering();
 
         textr = new TextRenderer(new Font("SansSerif", Font.PLAIN, 18));
-        textr.setColor(Color.GREEN);
+        textr.setColor(Color.black);
         textr.begin3DRendering();
         textr.draw3D(textPlayer2, getX(), getY() - 0.5f, 0.0f, 0.01f);
         textr.end3DRendering();

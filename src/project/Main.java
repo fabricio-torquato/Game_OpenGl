@@ -8,19 +8,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLCanvas;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.glu.GLU;
 
-/**
- * Project_robot.java <BR>
- * author: Brian Paul (converted to Java by Ron Cemer and Sven Goethel)
- * <P>
- *
- * This version is equal to Brian Paul's version 1.2 1999/10/21
- */
 public class Main implements GLEventListener, KeyListener {
 
     private Game game;
@@ -36,15 +30,10 @@ public class Main implements GLEventListener, KeyListener {
     int especMaterial = 60;
     double eqn[] = {-0.15, 0.15, 0, 0};
 
-    /**
-     * The earth texture.
-     */
-    private Texture earthTexture;
-
     GLUT glut = new GLUT();
 
     public static void main(String[] args) {
-        Frame frame = new Frame("Soccer");
+        Frame frame = new Frame("Volley");
         GLCanvas canvas = new GLCanvas();
 
         Main main1 = new Main();
@@ -80,7 +69,7 @@ public class Main implements GLEventListener, KeyListener {
 
         gl.setSwapInterval(1);
 
-        gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        gl.glClearColor(0.0f, 0.52f, 0.8f, 0.92f);
         gl.glShadeModel(GL.GL_SMOOTH);
 
         gl.glLightfv(GL.GL_LIGHT1, GL.GL_AMBIENT, luzAmbiente, 0);
@@ -92,7 +81,6 @@ public class Main implements GLEventListener, KeyListener {
         gl.glEnable(GL.GL_LIGHTING);
         gl.glEnable(GL.GL_LIGHT1);
         gl.glEnable(GL.GL_DEPTH_TEST);
-
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -121,7 +109,6 @@ public class Main implements GLEventListener, KeyListener {
         gl.glClear(GL.GL_COLOR_BUFFER_BIT
                 | GL.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
-
         gl.glTranslated(0, -1.5f, -9);
 
         gl.glRotated(10, 1, 0, 0);

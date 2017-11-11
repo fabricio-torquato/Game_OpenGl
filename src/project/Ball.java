@@ -6,7 +6,6 @@
 package project;
 
 import com.sun.opengl.util.GLUT;
-import com.sun.opengl.util.texture.Texture;
 import javax.media.opengl.GL;
 
 /**
@@ -31,11 +30,18 @@ public class Ball implements _Object3D {
 
     public void Draw(GL gl, GLUT glut, int glRotated) {
         gl.glPushMatrix();
-        gl.glColor3f(1, 0, 0);
+        gl.glColor3f(1, 1, 1);
         gl.glTranslated(x, y, 0);
         gl.glScaled(2, 2, 2);
         gl.glRotated(glRotated, 0, 1, 0);
         glut.glutSolidSphere(this.getSize(), 16, 16);
+        gl.glPopMatrix();
+        gl.glPushMatrix();
+        gl.glColor3f(0, 0, 0);
+        gl.glTranslated(x, y, 0);
+        gl.glScaled(2, 2, 2);
+        gl.glRotated(glRotated, 0, 1, 0);
+        glut.glutWireSphere(this.getSize(), 10, 10);
         gl.glPopMatrix();
     }
 
@@ -80,7 +86,7 @@ public class Ball implements _Object3D {
     }
 
     private boolean isIntersect(Player player) {
-        return (this.getX() + this.getSize() > player.getX() && this.getX() < player.getX() + player.getSize_x() && this.getY() + this.getSize() > 0 && this.getY() + this.getSize() < player.getSize_y());
+        return (this.getX() + this.getSize() > player.getX() && this.getX() < player.getX() + player.getSize_x() && this.getY() + this.getSize() > 0 && this.getY() + this.getSize() < 1 + player.getSize_y());
     }
 
     public int isDeadBall() {

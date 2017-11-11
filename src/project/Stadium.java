@@ -12,11 +12,11 @@ import javax.media.opengl.GL;
  *
  * @author fabricio
  */
-public class Ground implements _Object3D {
+public class Stadium implements _Object3D {
 
     private int x, y;
 
-    public Ground(int x, int y) {
+    public Stadium(int x, int y) {
         this.x = x;
         this.y = y;
 
@@ -27,25 +27,20 @@ public class Ground implements _Object3D {
     }
 
     public void Draw(GL gl, GLUT glut, int glRotated) {
-        gl.glPushMatrix();
-        gl.glColor3f(0.13f, 0.54f, 0.13f);
-        gl.glTranslated(this.getX(), -2, 0);
-        gl.glScaled(25, 1, 5);
-        gl.glRotated(glRotated, 0, 1, 0);
-        glut.glutSolidCube(1);
-        gl.glPopMatrix();
-        gl.glPushMatrix();
-        gl.glColor3f(1, 1, 1);
-        gl.glTranslated(this.getX() - 1.5, -1.95, 0);
-        gl.glScaled(0.3f, 1, 5);
-        glut.glutSolidCube(1);
-        gl.glPopMatrix();
-        gl.glPushMatrix();
-        gl.glColor3f(1, 1, 1);
-        gl.glTranslated(this.getX() + 9.5, -1.95, 0);
-        gl.glScaled(0.3f, 1, 5);
-        glut.glutSolidCube(1);
-        gl.glPopMatrix();
+        for (int i = 1; i <= 5; i++) {
+            gl.glPushMatrix();
+            gl.glColor3f(0.13f, 0.54f, 0.13f);
+            gl.glTranslated(this.getX(), -4 + i, -3 - i);
+            gl.glScaled(30, 3, 3);
+            glut.glutSolidCube(1);
+            gl.glPopMatrix();
+            gl.glPushMatrix();
+            gl.glColor3f(0, 0, 0);
+            gl.glTranslated(this.getX(), -4 + i, -3 - i);
+            gl.glScaled(30, 3, 3);
+            glut.glutWireCube(1);
+            gl.glPopMatrix();
+        }
     }
 
     public int getX() {

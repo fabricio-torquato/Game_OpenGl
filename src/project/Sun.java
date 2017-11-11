@@ -28,10 +28,10 @@ public class Sun implements _Object3D {
 
     public void Draw(GL gl, GLUT glut, int glRotated) {
         gl.glPushMatrix();
-        gl.glColor3f(0.99f,0.72f,0.07f);
+        gl.glColor3f(0.98f,0.83f,0.25f);
         gl.glTranslated(this.getX(), this.getY(), 0);
-        gl.glScaled(1, 1, 1);
-        gl.glRotated(glRotated, 0, 1, 0);
+        gl.glScaled(1, 1, 1); 
+        gl.glRotated(glRotated*2, 0, 1, 0);
         glut.glutSolidSphere(1, 16, 16);
         gl.glPopMatrix();
 

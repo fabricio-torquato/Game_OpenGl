@@ -26,10 +26,13 @@ public class Game {
     private Net net;
     private Ground ground;
     private Sun sum;
+    private Stadium stadium;
+    private Crowd crowd;
     private Score score;
     private int rotation;
     private int pointPlayer1;
     private int pointPlayer2;
+    private Texture piel;
 
     public Game() {
     }
@@ -46,13 +49,18 @@ public class Game {
         net = new Net(1, 0);
         ground = new Ground(-3, 0);
         sum = new Sun(6.2f, 4.6f);
-        score = new Score(-6.5f,4.5f);
+        score = new Score(-6.5f, 4.5f);
+        stadium = new Stadium(0, 2);
+        crowd = new Crowd(-14, 2);
     }
 
     public void Draw(GL gl, GLUT glut) {
-        sum.Draw(gl, glut, rotation/4);
+
+        sum.Draw(gl, glut, rotation / 4);
         net.Draw(gl, glut, 0);
         ground.Draw(gl, glut, -4);
+        stadium.Draw(gl, glut, 0);
+        crowd.Draw(gl, glut, 0);
         player1.Draw(gl, glut, dplayer1, rotation);
         dplayer1 = 0.0f;
         player2.Draw(gl, glut, dplayer2, rotation);
@@ -74,7 +82,7 @@ public class Game {
         String text = "Press 'R' to reset the game";
 
         TextRenderer textr = new TextRenderer(new Font("SansSerif", Font.PLAIN, 18));
-        textr.setColor(Color.GREEN);
+        textr.setColor(Color.black);
         textr.begin3DRendering();
         textr.draw3D(text, -3.5f, 2, 0, 0.03f);
         textr.end3DRendering();

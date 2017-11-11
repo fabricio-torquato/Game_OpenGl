@@ -6,6 +6,7 @@
 package project;
 
 import com.sun.opengl.util.GLUT;
+import com.sun.opengl.util.texture.Texture;
 import javax.media.opengl.GL;
 
 /**
@@ -23,9 +24,9 @@ public class Player implements _Object3D {
     public Player(double x) {
         this.x = x;
         this.y = 0.0f;
-        this.size_x = 0.8;
-        this.size_y = 1;
-        this.size_z = 1;
+        this.size_x = 0.4;
+        this.size_y = 0.5;
+        this.size_z = 0.5;
     }
 
     public void Draw(GL gl, GLUT glut, double glTranslated, int glRotated) {
@@ -33,28 +34,49 @@ public class Player implements _Object3D {
 
         gl.glPushMatrix();
         gl.glPushMatrix();
-        gl.glColor3f(0, 0, 1);
+        gl.glColor3f(1, 1, 0);
         gl.glRotated(90, 1, 0, 0);
-        gl.glTranslated(this.getX(), 0.25f, 0);
-        glut.glutSolidCylinder(0.15f, 1, 16, 16);
+        gl.glTranslated(this.getX(), 0.1f, 1);
+        glut.glutSolidCylinder(0.1f, 0.5, 16, 16);
         gl.glPopMatrix();
         gl.glPushMatrix();
-        gl.glColor3f(0, 0, 1);
+        gl.glColor3f(1, 1, 0);
         gl.glRotated(90, 1, 0, 0);
-        gl.glTranslated(this.getX(), -0.4f, 0);
-        glut.glutSolidCylinder(0.15f, 1, 16, 16);
+        gl.glTranslated(this.getX(), -0.3f, 1);
+        glut.glutSolidCylinder(0.1f, 0.5, 16, 16);
         gl.glPopMatrix();
         gl.glPushMatrix();
-        gl.glColor3f(1, 0, 0);
-        gl.glTranslated(this.getX(), 0.2f, 0);
-        gl.glScaled(getSize_x(), getSize_y()/2, getSize_z());
+        gl.glColor3f(0.6f, 0.34f, 0.12f);
+        gl.glTranslated(this.getX(), -1, 0);
+        gl.glScaled(getSize_x(), getSize_y() / 2, getSize_z());
         glut.glutSolidCube(1);
         gl.glPopMatrix();
-        gl.glColor3f(0, 1, 1);
-        gl.glTranslated(this.getX(), 0.95f, 0);
-        gl.glScaled(getSize_x(), getSize_y()/2+0.5f, getSize_z());
+        gl.glPushMatrix();
+        gl.glColor3f(0, 0, 0);
+        gl.glTranslated(this.getX(), -0.5f, 0);
+        gl.glScaled(getSize_x(), getSize_y() / 2 + 0.5f, getSize_z());
+        glut.glutWireCube(1);
+        gl.glPopMatrix();
+        gl.glColor3f(1, 1, 0);
+        gl.glTranslated(this.getX(), -0.5f, 0);
+        gl.glScaled(getSize_x(), getSize_y() / 2 + 0.5f, getSize_z());
         glut.glutSolidCube(1);
-
+        gl.glPopMatrix();
+        gl.glPushMatrix();
+        gl.glColor3f(1, 1, 0);
+        gl.glTranslated(this.getX(), -0.5f, 0);
+        gl.glTranslated(0, -0.7f, 0);
+        gl.glRotated(-90, 0, 0, 1);
+        gl.glRotated(-45, 0, 1, 0);
+        glut.glutSolidCylinder(0.1f, 0.5, 16, 16);
+        gl.glPopMatrix();
+        gl.glPushMatrix();
+        gl.glColor3f(1, 1, 0);
+        gl.glTranslated(this.getX(), 0.5f, -0.5f);
+        gl.glTranslated(0, -1.2f, 0);
+        gl.glRotated(90, 0, 0, 1);
+        gl.glRotated(-45, 0, 1, 0);
+        glut.glutSolidCylinder(0.1f, 0.5, 16, 16);
         gl.glPopMatrix();
     }
 
